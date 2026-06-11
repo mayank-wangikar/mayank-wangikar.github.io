@@ -12,14 +12,17 @@ jobs:
       - name: Checkout notes repo
         uses: actions/checkout@v4
 
-      - name: Install LaTeX
-        run: sudo apt-get install -y texlive-full
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --fix-missing texlive-full
 
       - name: Compile all .tex files to PDF
         run: |
           mkdir -p compiled_pdfs
+          shopt -s globstar
           for f in latex/**/*.tex; do
-            filename=$(basename "$f" .tex)
+            echo "Compiling $f..."
             pdflatex -interaction=nonstopmode -output-directory compiled_pdfs "$f" || true
           done
 
@@ -38,12 +41,12 @@ jobs:
       - name: Update notes.html
         run: |
           python3 - <<'EOF'
-          import os, pathlib
+          import pathlib
 
           pdfs = sorted(pathlib.Path("website/pdfs").glob("*.pdf"))
           links = ""
           for pdf in pdfs:
-              name = pdf.stem.replace(" - ltx", "").replace("-", " ")
+              name = pdf.stem.replace(" - ltx", "").replace(" - LTX", "")
               links += f'<li><a href="pdfs/{pdf.name}">{name}</a></li>\n'
 
           notes_path = pathlib.Path("website/notes.html")
@@ -52,6 +55,7 @@ jobs:
           end = content.index("<!-- NOTES_LIST_END -->")
           new_content = content[:start] + f"\n<ul>\n{links}</ul>\n" + content[end:]
           notes_path.write_text(new_content)
+          print(f"Updated notes.html with {len(pdfs)} PDFs.")
           EOF
 
       - name: Push to website
