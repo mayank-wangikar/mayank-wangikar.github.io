@@ -1,0 +1,64 @@
+name: Compile and Publish Notes
+
+on:
+  push:
+    paths:
+      - 'latex/**/*.tex'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout notes repo
+        uses: actions/checkout@v4
+
+      - name: Install LaTeX
+        run: sudo apt-get install -y texlive-full
+
+      - name: Compile all .tex files to PDF
+        run: |
+          mkdir -p compiled_pdfs
+          for f in latex/**/*.tex; do
+            filename=$(basename "$f" .tex)
+            pdflatex -interaction=nonstopmode -output-directory compiled_pdfs "$f" || true
+          done
+
+      - name: Checkout website repo
+        uses: actions/checkout@v4
+        with:
+          repository: mayank-wangikar/mayank-wangikar.github.io
+          token: ${{ secrets.WEBSITE_TOKEN }}
+          path: website
+
+      - name: Copy PDFs to website
+        run: |
+          mkdir -p website/pdfs
+          cp compiled_pdfs/*.pdf website/pdfs/ 2>/dev/null || true
+
+      - name: Update notes.html
+        run: |
+          python3 - <<'EOF'
+          import os, pathlib
+
+          pdfs = sorted(pathlib.Path("website/pdfs").glob("*.pdf"))
+          links = ""
+          for pdf in pdfs:
+              name = pdf.stem.replace(" - ltx", "").replace("-", " ")
+              links += f'<li><a href="pdfs/{pdf.name}">{name}</a></li>\n'
+
+          notes_path = pathlib.Path("website/notes.html")
+          content = notes_path.read_text()
+          start = content.index("<!-- NOTES_LIST_START -->") + len("<!-- NOTES_LIST_START -->")
+          end = content.index("<!-- NOTES_LIST_END -->")
+          new_content = content[:start] + f"\n<ul>\n{links}</ul>\n" + content[end:]
+          notes_path.write_text(new_content)
+          EOF
+
+      - name: Push to website
+        run: |
+          cd website
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add .
+          git diff --staged --quiet || git commit -m "Update notes"
+          git push
