@@ -49,6 +49,17 @@
           "subfolders": []
         }
       ]
+    },
+    {
+      "id": "talks",
+      "name": "Talks",
+      "files": [
+        {
+          "name": "Random Matrices",
+          "pdf": "pdfs/Random Matrices - ltx.pdf"
+        }
+      ],
+      "subfolders": []
     }
   ],
   "uncategorized": [
@@ -90,10 +101,6 @@
     {
       "name": "2.2 Measure Preliminaries-2",
       "pdf": "pdfs/2.2 Measure Preliminaries-2 - ltx.pdf"
-    },
-    {
-      "name": "Random Matrices",
-      "pdf": "pdfs/Random Matrices - ltx.pdf"
     }
   ]
 }
