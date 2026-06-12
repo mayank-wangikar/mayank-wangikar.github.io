@@ -120,6 +120,11 @@ hr {
   border-bottom: 1px solid var(--rule);
 }
 
+.subfolder {
+  border-top: 1px solid var(--rule);
+  border-bottom: none;
+}
+
 .folder-header {
   display: flex;
   align-items: center;
@@ -139,14 +144,19 @@ hr {
   display: inline-block;
 }
 
-.folder.open .folder-arrow { transform: rotate(90deg); }
+.folder.open > .folder-arrow,
+.folder.open > .folder-header .folder-arrow {
+  transform: rotate(90deg);
+}
 
 .folder-files {
   display: none;
-  padding: 0 0 0.8rem 1rem;
+  padding: 0 0 0.8rem 0;
 }
 
-.folder.open .folder-files { display: block; }
+.folder.open > .folder-files {
+  display: block;
+}
 
 .file-entry {
   display: flex;
@@ -171,7 +181,6 @@ hr {
   color: var(--muted);
   font-style: italic;
 }
-
 /* ---------- Sidequests section ---------- */
 .sidequest-item {
   border-top: 1px solid var(--rule);
