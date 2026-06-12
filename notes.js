@@ -59,9 +59,6 @@ function renderNotes(manifest, container) {
   });
 
   // Render uncategorized if any
-  if (uncategorized.length > 0) {
-    container.appendChild(buildFolder('Uncategorized', uncategorized, 'uncategorized', [], 0));
-  }
 }
 
 function buildFolder(name, files, id, subfolders, depth) {
