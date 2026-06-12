@@ -64,12 +64,7 @@
     {
       "id": "mathmatical-methods-for-classical-mechanics",
       "name": "Mathmatical Methods for Classical Mechanics",
-      "files": [
-        {
-          "name": "Mathematical Methods for Classical Mechanics",
-          "pdf": "pdfs/Mathematical Methods for Classical Mechanics - ltx.pdf"
-        }
-      ],
+      "files": [],
       "subfolders": []
     }
   ],
@@ -112,6 +107,10 @@
     {
       "name": "2.2 Measure Preliminaries-2",
       "pdf": "pdfs/2.2 Measure Preliminaries-2 - ltx.pdf"
+    },
+    {
+      "name": "Mathematical Methods for Classical Mechanics",
+      "pdf": "pdfs/Mathematical Methods for Classical Mechanics - ltx.pdf"
     }
   ]
 }
