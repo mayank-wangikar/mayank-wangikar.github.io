@@ -15,11 +15,6 @@
               "tex": "latex/1.1 Topological Preliminaries - ltx.tex"
             },
             {
-              "name": "1.2 Topological Groups",
-              "pdf": "pdfs/1.2 Topological Groups - ltx.pdf",
-              "tex": "latex/1.2 Topological Groups - ltx.tex"
-            },
-            {
               "name": "1.3 Subgroup, Quotient Group",
               "pdf": "pdfs/1.3 Subgroup, Quotient Group - ltx.pdf",
               "tex": "latex/1.3 Subgroup, Quotient Group - ltx.tex"
@@ -47,5 +42,11 @@
       ]
     }
   ],
-  "uncategorized": []
+  "uncategorized": [
+    {
+      "name": "1.2 Topological Groups",
+      "pdf": "pdfs/1.2 Topological Groups - ltx.pdf",
+      "tex": "latex/1.2 Topological Groups - ltx.tex"
+    }
+  ]
 }
