@@ -35,6 +35,11 @@
               "name": "2.1 Measure Preliminaries I",
               "pdf": "pdfs/2.1 Measure Preliminaries-1 - ltx.pdf",
               "tex": "latex/2.1 Measure Preliminaries-1 - ltx.tex"
+            },
+            {
+              "name": "2.2 Measure Preliminaries-2 - ltx.pdf",
+              "title": "2.2 Measure Preliminaries-2",
+              "path": "pdfs/2.2 Measure Preliminaries-2 - ltx.pdf"
             }
           ],
           "subfolders": []
@@ -47,11 +52,6 @@
       "name": "1.2 Topological Groups",
       "pdf": "pdfs/1.2 Topological Groups - ltx.pdf",
       "tex": "latex/1.2 Topological Groups - ltx.tex"
-    },
-    {
-  "name": "2.2 Measure Preliminaries-2 - ltx.pdf",
-  "title": "2.2 Measure Preliminaries-2",
-  "path": "pdfs/2.2 Measure Preliminaries-2 - ltx.pdf"
-}
+    }
   ]
 }
