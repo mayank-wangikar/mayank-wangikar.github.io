@@ -1,7 +1,13 @@
 {
   "folders": [
     {
-      "id": "chapter-1-topology",
+      "id": "topological-groups-and-their-representation",
+      "name": "Topological Groups and their representation",
+      "files": [],
+      "subfolders": []
+    },
+    {
+      "id": "chapter-1-topological-groups",
       "name": "Chapter 1: Topological Groups",
       "files": [
         {
@@ -24,10 +30,11 @@
           "pdf": "pdfs/1.4 Matrix Group - ltx.pdf",
           "tex": "latex/1.4 Matrix Group - ltx.tex"
         }
-      ]
+      ],
+      "subfolders": []
     },
     {
-      "id": "chapter-2-measure",
+      "id": "chapter-2-measure-theory",
       "name": "Chapter 2: Measure Theory",
       "files": [
         {
@@ -35,12 +42,7 @@
           "pdf": "pdfs/2.1 Measure Preliminaries-1 - ltx.pdf",
           "tex": "latex/2.1 Measure Preliminaries-1 - ltx.tex"
         }
-      ]
-    },
-    {
-      "id": "topological-groups-and-their-representation",
-      "name": "Topological Groups and their representation",
-      "files": [],
+      ],
       "subfolders": []
     }
   ],
