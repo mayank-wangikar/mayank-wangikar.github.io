@@ -1,33 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mayank Wangikar</title>
-<style>
-  body { font-family: Georgia, serif; max-width: 700px; margin: 60px auto; padding: 0 20px; color: #222; line-height: 1.6; }
-  h1 { font-size: 1.8em; margin-bottom: 0.2em; }
-  nav { margin: 1em 0 2em 0; }
-  nav a { margin-right: 1.5em; color: #00008B; text-decoration: none; }
-  nav a:hover { text-decoration: underline; }
-  .section { margin-bottom: 2em; }
-  hr { border: none; border-top: 1px solid #ccc; margin: 2em 0; }
-  a { color: #00008B; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mayank Wangikar</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Mayank Wangikar</h1>
-<nav>
-  <a href="index.html">Home</a>
-  <a href="notes.html">Notes</a>
-</nav>
-<hr>
-<div class="section">
-  <p>Student at IISER Bhopal.</p>
-  <p>Interests: Mathematics, Topology, Algebra.</p>
-</div>
-<hr>
-<b>Contact</b><br>
-IISER Bhopal<br>
+
+  <!-- ── Site name ── -->
+  <div class="site-name">
+    <a href="index.html">Mayank Wangikar</a>
+  </div>
+
+  <!-- ── Primary navigation ── -->
+  <nav class="primary" id="main-nav">
+    <a href="#about"      class="nav-link active" data-section="about">About</a>
+    <a href="#notes"      class="nav-link"         data-section="notes">Notes</a>
+    <a href="#sidequests" class="nav-link"         data-section="sidequests">Sidequests</a>
+    <a href="#blog"       class="nav-link"         data-section="blog">Blog</a>
+    <a href="cv.pdf"      target="_blank"           id="cv-link">CV</a>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════════ -->
+  <section id="about" class="section visible">
+    <div class="about-text">
+      <p>
+        Hello, there. I am Mayank Wangikar, a fourth-year mathematics major
+        at IISER Bhopal.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       NOTES
+  ══════════════════════════════════════════ -->
+  <section id="notes" class="section">
+    <p class="notes-intro">
+      Lecture notes and problem sets. Files are automatically converted from
+      handwritten GoodNotes PDFs.
+    </p>
+    <!-- Folder tree is rendered here by notes.js -->
+    <div id="notes-container">
+      <p class="notes-empty">Loading notes&hellip;</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SIDEQUESTS
+  ══════════════════════════════════════════ -->
+  <section id="sidequests" class="section">
+
+    <div class="sidequest-item">
+      <div class="sidequest-title">Math Club</div>
+      <div class="sidequest-desc">
+        <!-- Placeholder — replace with your description -->
+        Description coming soon.
+      </div>
+    </div>
+
+    <div class="sidequest-item">
+      <div class="sidequest-title">Movie Club</div>
+      <div class="sidequest-desc">
+        <!-- Placeholder — replace with your description -->
+        Description coming soon.
+      </div>
+    </div>
+
+    <div class="sidequest-item">
+      <div class="sidequest-title">Debating Society</div>
+      <div class="sidequest-desc">
+        <!-- Placeholder — replace with your description -->
+        Description coming soon.
+      </div>
+    </div>
+
+    <div class="sidequest-item">
+      <div class="sidequest-title">Chrysalis — IISER Bhopal Fest</div>
+      <div class="sidequest-desc">
+        <!-- Placeholder — replace with your description -->
+        Description coming soon.
+      </div>
+    </div>
+
+    <div class="sidequest-item">
+      <div class="sidequest-title">Trumpet &amp; Music</div>
+      <div class="sidequest-desc">
+        <!-- Placeholder — replace with your description -->
+        Description coming soon.
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════
+       BLOG  (structurally ready, hidden)
+  ══════════════════════════════════════════ -->
+  <section id="blog" class="section">
+
+    <p class="blog-empty">No posts yet.</p>
+
+    <!--
+    ══════════════════════════════════════════
+    BLOG POST TEMPLATE — duplicate and fill to add a post.
+    Change display:none to display:block (or remove the class) to publish.
+
+    <article class="blog-post" style="display:block">
+      <h2><a href="posts/your-slug.html">Post Title Here</a></h2>
+      <p class="small muted">Month DD, YYYY</p>
+      <p>One-sentence summary or lede.</p>
+    </article>
+    ══════════════════════════════════════════
+    -->
+
+  </section>
+
+  <!-- ── JS ── -->
+  <script src="notes.js"></script>
+  <script src="main.js"></script>
+
 </body>
 </html>
