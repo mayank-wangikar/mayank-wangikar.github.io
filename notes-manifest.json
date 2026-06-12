@@ -1,0 +1,42 @@
+{
+  "folders": [
+    {
+      "id": "chapter-1-topology",
+      "name": "Chapter 1: Topological Groups",
+      "files": [
+        {
+          "name": "1.1 Topological Preliminaries",
+          "pdf": "pdfs/1.1 Topological Preliminaries - ltx.pdf",
+          "tex": "latex/1.1 Topological Preliminaries - ltx.tex"
+        },
+        {
+          "name": "1.2 Topological Groups",
+          "pdf": "pdfs/1.2 Topological Groups - ltx.pdf",
+          "tex": "latex/1.2 Topological Groups - ltx.tex"
+        },
+        {
+          "name": "1.3 Subgroup, Quotient Group",
+          "pdf": "pdfs/1.3 Subgroup, Quotient Group - ltx.pdf",
+          "tex": "latex/1.3 Subgroup, Quotient Group - ltx.tex"
+        },
+        {
+          "name": "1.4 Matrix Group",
+          "pdf": "pdfs/1.4 Matrix Group - ltx.pdf",
+          "tex": "latex/1.4 Matrix Group - ltx.tex"
+        }
+      ]
+    },
+    {
+      "id": "chapter-2-measure",
+      "name": "Chapter 2: Measure Theory",
+      "files": [
+        {
+          "name": "2.1 Measure Preliminaries I",
+          "pdf": "pdfs/2.1 Measure Preliminaries-1 - ltx.pdf",
+          "tex": "latex/2.1 Measure Preliminaries-1 - ltx.tex"
+        }
+      ]
+    }
+  ],
+  "uncategorized": []
+}
