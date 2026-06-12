@@ -1,4 +1,4 @@
-/* notes.js — reads notes-manifest.json and renders collapsible folders */
+/* notes.js — reads notes-manifest.json and renders collapsible folders (with nested subfolders) */
 
 function loadNotes() {
   const container = document.getElementById('notes-container');
@@ -24,14 +24,22 @@ function renderNotes(manifest, container) {
   //       "id": "folder-1",
   //       "name": "Chapter 1: Topological Groups",
   //       "files": [
-  //         { "name": "1.1 Topological Preliminaries", "pdf": "pdfs/1.1 Topological Preliminaries.pdf", "tex": "latex/1.1 Topological Preliminaries.tex" },
+  //         { "name": "1.1 Topological Preliminaries", "pdf": "pdfs/1.1 Topological Preliminaries.pdf" },
   //         ...
+  //       ],
+  //       "subfolders": [
+  //         {
+  //           "id": "folder-1a",
+  //           "name": "Subsection A",
+  //           "files": [...],
+  //           "subfolders": [...]   // can nest indefinitely
+  //         }
   //       ]
   //     },
   //     ...
   //   ],
   //   "uncategorized": [
-  //     { "name": "...", "pdf": "...", "tex": "..." }
+  //     { "name": "...", "pdf": "..." }
   //   ]
   // }
 
@@ -45,21 +53,23 @@ function renderNotes(manifest, container) {
 
   container.innerHTML = '';
 
-  // Render named folders
+  // Render named folders (recursively handles subfolders)
   folders.forEach(folder => {
-    container.appendChild(buildFolder(folder.name, folder.files, folder.id));
+    container.appendChild(buildFolder(folder.name, folder.files, folder.id, folder.subfolders, 0));
   });
 
   // Render uncategorized if any
   if (uncategorized.length > 0) {
-    container.appendChild(buildFolder('Uncategorized', uncategorized, 'uncategorized'));
+    container.appendChild(buildFolder('Uncategorized', uncategorized, 'uncategorized', [], 0));
   }
 }
 
-function buildFolder(name, files, id) {
+function buildFolder(name, files, id, subfolders, depth) {
   const div = document.createElement('div');
   div.className = 'folder';
+  if (depth > 0) div.classList.add('subfolder');
   div.id = 'folder-' + id;
+  div.style.marginLeft = (depth * 1.25) + 'rem';
 
   // Header
   const header = document.createElement('div');
@@ -70,35 +80,40 @@ function buildFolder(name, files, id) {
   `;
   header.addEventListener('click', () => div.classList.toggle('open'));
 
-  // File list
-  const fileList = document.createElement('div');
-  fileList.className = 'folder-files';
+  // Body — holds files and nested subfolders
+  const body = document.createElement('div');
+  body.className = 'folder-files';
 
-  if (!files || files.length === 0) {
-    fileList.innerHTML = '<p class="notes-empty" style="padding:0.3rem 0">Empty folder.</p>';
+  const hasFiles = files && files.length > 0;
+  const hasSubfolders = subfolders && subfolders.length > 0;
+
+  if (!hasFiles && !hasSubfolders) {
+    body.innerHTML = '<p class="notes-empty" style="padding:0.3rem 0">Empty folder.</p>';
   } else {
-    files.forEach(file => {
-      const entry = document.createElement('div');
-      entry.className = 'file-entry';
+    if (hasFiles) {
+      files.forEach(file => {
+        const entry = document.createElement('div');
+        entry.className = 'file-entry';
+        const pdfLink = file.pdf
+          ? `<a href="${escapeHtml(file.pdf)}" target="_blank">PDF</a>`
+          : '';
+        entry.innerHTML = `
+          <span class="file-name">${escapeHtml(file.name)}</span>
+          ${pdfLink}
+        `;
+        body.appendChild(entry);
+      });
+    }
 
-      const pdfLink = file.pdf
-        ? `<a href="${escapeHtml(file.pdf)}" target="_blank">PDF</a>`
-        : '';
-      const texLink = file.tex
-        ? `<a href="${escapeHtml(file.tex)}" target="_blank">TeX</a>`
-        : '';
-
-      entry.innerHTML = `
-        <span class="file-name">${escapeHtml(file.name)}</span>
-        ${pdfLink}
-        ${texLink}
-      `;
-      fileList.appendChild(entry);
-    });
+    if (hasSubfolders) {
+      subfolders.forEach(sub => {
+        body.appendChild(buildFolder(sub.name, sub.files, sub.id, sub.subfolders, depth + 1));
+      });
+    }
   }
 
   div.appendChild(header);
-  div.appendChild(fileList);
+  div.appendChild(body);
   return div;
 }
 
