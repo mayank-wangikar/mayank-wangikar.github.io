@@ -3,13 +3,7 @@
     {
       "id": "topological-groups-and-their-representation",
       "name": "Topological Groups and their representation",
-      "files": [
-        {
-          "name": "homework_1 - ltx.pdf",
-          "title": "homework_1",
-          "pdf": "pdfs/homework_1 - ltx.pdf"
-        }
-      ],
+      "files": [],
       "subfolders": [
         {
           "id": "chapter-1-topological-groups",
@@ -83,6 +77,11 @@
       "name": "2.2 Measure Prerequisite-2 - ltx.pdf",
       "title": "2.2 Measure Prerequisite-2",
       "path": "pdfs/2.2 Measure Prerequisite-2 - ltx.pdf"
+    },
+    {
+      "name": "homework_1 - ltx.pdf",
+      "title": "homework_1",
+      "pdf": "pdfs/homework_1 - ltx.pdf"
     }
   ]
 }
