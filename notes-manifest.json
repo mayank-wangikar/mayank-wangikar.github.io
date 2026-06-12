@@ -3,7 +3,13 @@
     {
       "id": "topological-groups-and-their-representation",
       "name": "Topological Groups and their representation",
-      "files": [],
+      "files": [
+        {
+          "name": "homework_1 - ltx.pdf",
+          "title": "homework_1",
+          "path": "pdfs/homework_1 - ltx.pdf"
+        }
+      ],
       "subfolders": [
         {
           "id": "chapter-1-topological-groups",
@@ -23,11 +29,6 @@
               "name": "1.4 Matrix Group",
               "pdf": "pdfs/1.4 Matrix Group - ltx.pdf",
               "tex": "latex/1.4 Matrix Group - ltx.tex"
-            },
-            {
-              "name": "homework_1 - ltx.pdf",
-              "title": "homework_1",
-              "path": "pdfs/homework_1 - ltx.pdf"
             }
           ],
           "subfolders": []
