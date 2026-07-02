@@ -292,13 +292,12 @@
       I had two questions reading this: why decompose $f$ this way at all, and what does the decomposition
       actually look like? So I sketched the $f_i$ by hand for small $n$ (2 or 3), trying a few
       <a href="https://en.wikipedia.org/wiki/Simple_function" target="_blank" rel="noopener">simple functions</a>
-      as $f$. The resulting $f_i$ came out surprisingly strange&mdash;little step-like bands stacked
-      vertically, each one a horizontal "slice" of $f$'s range. That got me wondering how the decomposition
-      would look for a genuinely weirder $f$, still continuous and compactly supported, but with more
-      interesting behavior near the boundary of its support.
+      as $f$. Then I tried for $f(x) = \frac{1}{4}(4-x^2)$ for $x \in [-2,2]$ and $0$ otherwise. It happended that these decomposition fuctions, 
+      looked like the simple functions I started with.
     </p>
 
     <p>
+      Now, as any mathematics student, I wanted a generalized picture, so $\mathbb{R}$ is a locally compact hausdorff group.
       So I built a small interactive tool to visualize it directly: pick an $f$, pick $n$, and watch the
       $f_i$ layers assemble back into $f$ as you toggle them on and off.
     </p>
