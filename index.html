@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mayank Wangikar</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- LaTeX support for blog posts: write $inline$ or $$display$$ math -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 </head>
 <body>
 
@@ -129,58 +140,104 @@
   </section>
 
   <!-- ══════════════════════════════════════
-       BLOG  (structurally ready, hidden)
+       BLOG
   ══════════════════════════════════════════ -->
   <section id="blog" class="section">
 
-    <p class="blog-empty">No posts yet.</p>
+    <!-- Scoped styling reusing the same tokens/pattern as the notes-folder accordion -->
+    <style>
+      .blog-post {
+        display: block;
+        border-top: 1px solid var(--rule);
+      }
+      .blog-post:last-child {
+        border-bottom: 1px solid var(--rule);
+      }
+      .blog-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.65rem 0;
+        cursor: pointer;
+        user-select: none;
+      }
+      .blog-header:hover { color: var(--muted); }
+      .blog-header .blog-title { font-size: 0.95rem; }
+      .blog-header .blog-date { font-size: 0.85rem; color: var(--muted); margin-left: 1rem; white-space: nowrap; }
+      .blog-arrow {
+        font-size: 0.75rem;
+        color: var(--muted);
+        transition: transform 0.2s;
+        display: inline-block;
+        margin-left: 0.6rem;
+      }
+      .blog-post.open .blog-arrow { transform: rotate(90deg); }
+      .blog-body {
+        display: none;
+        padding: 0 0 1.1rem 0;
+        font-size: 0.93rem;
+        color: var(--text);
+      }
+      .blog-post.open .blog-body { display: block; }
+      .blog-body p { margin-bottom: 0.9rem; }
+    </style>
+
+    <p class="blog-empty" style="display:none">No posts yet.</p>
 
     <!--
     ══════════════════════════════════════════
-    BLOG POST TEMPLATE — duplicate and fill to add a post.
-    Change display:none to display:block (or remove the class) to publish.
+    BLOG POST TEMPLATE — duplicate to add a post.
+    LaTeX: use $inline math$ or $$display math$$ anywhere in the body.
 
-    <article class="blog-post" style="display:block">
-      <h2><a href="posts/your-slug.html">Post Title Here</a></h2>
-      <p class="small muted">Month DD, YYYY</p>
-      <p>One-sentence summary or lede.</p>
+    <article class="blog-post">
+      <div class="blog-header" onclick="this.closest('.blog-post').classList.toggle('open')">
+        <span class="blog-title">Post Title Here</span>
+        <span>
+          <span class="blog-date">Month DD, YYYY</span><span class="blog-arrow">&#9654;</span>
+        </span>
+      </div>
+      <div class="blog-body">
+        <p>Full post body goes here.</p>
+      </div>
     </article>
     ══════════════════════════════════════════
-    --><article class="blog-post">
-  <h1>A Rat in Time — A Very Serious Game Jam 2026</h1>
-  <p class="small muted">July 02, 2026</p>
- 
-  <p>
-    I thought of writing a blog about the game jam I took part in, from
-    19th June to 26th June 2026. I had used Godot in the past, but never
-    to the same extent as I was using it that week. I was working with a
-    friend of mine, and thought I might as well use this website to
-    document what I have been up to.
-  </p>
- 
-  <p>
-    Here's the game on itch.io:
-    <a href="https://ma-nu03.itch.io/sissy" target="_blank" rel="noopener">A Rat in Time</a>
-  </p>
- 
-  <p>
-    I think this was a good experience. Both my friend and I agreed that
-    we must create more than what we consume — there are so many side
-    quests one can keep going on, and I thought dipping into game dev
-    would be a fun endeavour.
-  </p>
- 
-  <p>
-    So, play the game. I hope this is more of a start to game
-    development rather than a one-time thing. I had a lot of fun doing
-    this.
-  </p>
- 
-  <p><a href="../index.html">&larr; Back to blog</a></p>
-</article>
+    -->
 
+    <article class="blog-post">
+      <div class="blog-header" onclick="this.closest('.blog-post').classList.toggle('open')">
+        <span class="blog-title">A Rat in Time — A Very Serious Game Jam 2026</span>
+        <span>
+          <span class="blog-date">July 02, 2026</span><span class="blog-arrow">&#9654;</span>
+        </span>
+      </div>
+      <div class="blog-body">
+        <p>
+          I thought of writing a blog about the game jam I took part in, from
+          19th June to 26th June 2026. I had used Godot in the past, but never
+          to the same extent as I was using it that week. I was working with a
+          friend of mine, and thought I might as well use this website to
+          document what I have been up to.
+        </p>
 
-    
+        <p>
+          Here's the game on itch.io:
+          <a href="https://ma-nu03.itch.io/sissy" target="_blank" rel="noopener">A Rat in Time</a>
+        </p>
+
+        <p>
+          I think this was a good experience. Both my friend and I agreed that
+          we must create more than what we consume — there are so many side
+          quests one can keep going on, and I thought dipping into game dev
+          would be a fun endeavour.
+        </p>
+
+        <p>
+          So, play the game. I hope this is more of a start to game
+          development rather than a one-time thing. I had a lot of fun doing
+          this.
+        </p>
+      </div>
+    </article>
 
   </section>
 
