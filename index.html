@@ -241,6 +241,74 @@
 
   </section>
 
+  <article class="blog-post">
+  <div class="blog-header" onclick="this.closest('.blog-post').classList.toggle('open')">
+    <span class="blog-title">Visualizing a Vertical Decomposition on the Real Line</span>
+    <span>
+      <span class="blog-date">July 2, 2026</span><span class="blog-arrow">&#9654;</span>
+    </span>
+  </div>
+  <div class="blog-body">
+    <p>
+      In the summer of 2026, I'm doing my internship on topological groups and their representations,
+      following K. Chandrasekharan's <em>A Course on Topological Groups</em>. While working through the
+      proof of Theorem 3&mdash;that there exists a regular measure $m$ on $R$ such that for $f \in C_0$,
+    </p>
+
+    $$P(f) = \int_R f(x)\, dm(x),$$
+
+    <p>
+      where the integral is taken over the measure space $(R, \mathcal{S}, m)$, with $\mathcal{S}$ the
+      Borel ring on $R$ and $R \in \mathcal{S}$&mdash;I needed to establish the inequality
+      $f \in C_0,\ f \geq 0 \implies P(f) \geq \int f\, dm$, where $C_0$ is the space of real continuous
+      functions with compact support (i.e. functions vanishing outside some compact subset of $R$).
+    </p>
+
+    <p>
+      Since $R$ here is a locally compact Hausdorff group, and $\mathbb{R}$ is the simplest example of one,
+      that's the setting I used to explore the idea.
+    </p>
+
+    <p>
+      The book's proof begins by decomposing $f$ as follows:
+    </p>
+
+    $$f(x) = \frac{1}{n}\sum_{i=1}^{n} f_i(x),$$
+
+    <p>
+      where $n$ is a given positive integer, and for $i = 1, 2, \dots, n$,
+    </p>
+
+    $$
+    f_i(x) =
+    \begin{cases}
+      0, & \text{if } f(x) < \dfrac{i-1}{n}; \\[6pt]
+      n f(x) - (i-1) = \dfrac{f(x) - \frac{i-1}{n}}{\frac{1}{n}}, & \text{if } \dfrac{i-1}{n} \le f(x) \le \dfrac{i}{n}; \\[6pt]
+      1, & \text{if } \dfrac{i}{n} < f(x).
+    \end{cases}
+    $$
+
+    <p>
+      I had two questions reading this: why decompose $f$ this way at all, and what does the decomposition
+      actually look like? So I sketched the $f_i$ by hand for small $n$ (2 or 3), trying a few
+      <a href="https://en.wikipedia.org/wiki/Simple_function" target="_blank" rel="noopener">simple functions</a>
+      as $f$. The resulting $f_i$ came out surprisingly strange&mdash;little step-like bands stacked
+      vertically, each one a horizontal "slice" of $f$'s range. That got me wondering how the decomposition
+      would look for a genuinely weirder $f$, still continuous and compactly supported, but with more
+      interesting behavior near the boundary of its support.
+    </p>
+
+    <p>
+      So I built a small interactive tool to visualize it directly: pick an $f$, pick $n$, and watch the
+      $f_i$ layers assemble back into $f$ as you toggle them on and off.
+    </p>
+
+    <p>
+      <a href="PASTE_YOUR_LINK_HERE" target="_blank" rel="noopener">Try the visualization tool &rarr;</a>
+    </p>
+  </div>
+</article>
+
   <!-- ── JS ── -->
   <script src="notes.js"></script>
   <script src="main.js"></script>
