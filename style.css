@@ -23,14 +23,21 @@
 
 /* ---------- Base ---------- */
 /* ---------- Base Background ---------- */
+/* ---------- Base Background ---------- */
 html { 
   font-size: 16px; 
   background-color: var(--bg);                 /* Fallback color */
-  background-image: url('sl_072622_51930_13.jpg'); /* Make sure this filename is EXACT */
-  background-size: cover;                      /* Stretch to fill entire screen */
-  background-position: center;                 /* Center the image */
-  background-attachment: fixed;                /* Keep it fixed while scrolling */
-  background-repeat: no-repeat;                /* Do not tile */
+  
+  /* The linear-gradient acts as a white overlay. 
+     0.85 means 85% white, letting only 15% of the grid shine through. */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), 
+    url('sl_072622_51930_13.jpg');
+    
+  background-size: cover;                      
+  background-position: center;                 
+  background-attachment: fixed;                
+  background-repeat: no-repeat;                
 }
 
 body {
