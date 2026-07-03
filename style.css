@@ -22,20 +22,20 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 /* ---------- Base ---------- */
-html { font-size: 16px; }
+/* ---------- Base Background ---------- */
+html { 
+  font-size: 16px; 
+  background-color: var(--bg);                 /* Fallback color */
+  background-image: url('sl_072622_51930_13.jpg'); /* Make sure this filename is EXACT */
+  background-size: cover;                      /* Stretch to fill entire screen */
+  background-position: center;                 /* Center the image */
+  background-attachment: fixed;                /* Keep it fixed while scrolling */
+  background-repeat: no-repeat;                /* Do not tile */
+}
 
 body {
   font-family: var(--font-body);
-  
-  /* Background properties */
-  background-color: var(--bg);                 /* Fallback color if image fails to load */
-  background-image: url('sl_072622_51930_13.jpg');
-  background-size: cover;                      /* Scales the image to cover the screen */
-  background-position: center;                 /* Centers the image */
-  background-attachment: fixed;                /* Keeps background static while scrolling */
-  background-repeat: no-repeat;                /* Prevents the image from repeating/tiling */
-  
-  /* Typography & Layout */
+  /* Remove background properties from here so they don't conflict */
   color: var(--text);
   line-height: 1.65;
   padding: 3.5rem 1.5rem 6rem;
