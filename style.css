@@ -13,7 +13,7 @@
   --link-hover:#0000cc;
   --rule:      #d0d0d0;
   --nav-gap:   2.2rem;
-  --content-w: 680px;
+  --content-w: 740px; /* Width of your central white column */
   --font-body: "Computer Modern", "CMU Serif", Georgia, "Times New Roman", serif;
   --font-mono: "Courier New", Courier, monospace;
 }
@@ -21,15 +21,12 @@
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ---------- Base ---------- */
-/* ---------- Base Background ---------- */
 /* ---------- Base Background ---------- */
 html { 
   font-size: 16px; 
-  background-color: var(--bg);                 /* Fallback color */
+  background-color: var(--bg);                 
   
-  /* The linear-gradient acts as a white overlay. 
-     0.85 means 85% white, letting only 15% of the grid shine through. */
+  /* The grid layout stays on the base html level */
   background-image: 
     linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), 
     url('sl_072622_51930_13.jpg');
@@ -42,35 +39,35 @@ html {
 
 body {
   font-family: var(--font-body);
-  /* Remove background properties from here so they don't conflict */
   color: var(--text);
   line-height: 1.65;
-  padding: 3.5rem 1.5rem 6rem;
-  max-width: var(--content-w);
-  margin: 0 auto;
   -webkit-font-smoothing: antialiased;
+  
+  /* Spans the full screen width to display the grid background on the sides */
+  width: 100%;
+  min-height: 100vh;
 }
-/* ---------- Name / Site Title ---------- */
-.container {
-  /* Sets the width between your red lines */
-  max-width: 800px; /* Adjust this value to match your desired width */
+
+/* ---------- Central White Column Container ---------- */
+.content-wrapper, .container {
+  max-width: var(--content-w); 
   width: 100%;
   
-  /* Centers the content box horizontally */
+  /* Centers the lane perfectly on the page */
   margin: 0 auto; 
   
-  /* Forces the white background from top to bottom */
+  /* This creates the solid white mask from top to bottom */
   background-color: #ffffff; 
   
-  /* Optional: Adds padding so your text doesn't touch the edge of the white area */
-  padding: 40px; 
+  /* Generates breathing space inside the white line */
+  padding: 4.5rem 2.5rem 6rem; 
   
-  /* Ensures the white block spans the full height of the viewport if content is short */
+  /* Ensures the white block goes bottom-to-top regardless of content size */
   min-height: 100vh; 
-  
-  /* Keeps the border lines neat */
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
+
+/* ---------- Name / Site Title ---------- */
 .site-name {
   font-size: 1.45rem;
   font-weight: normal;
@@ -136,7 +133,7 @@ hr {
 .about-text {
   font-size: 1rem;
   line-height: 1.75;
-  max-width: 560px;
+  max-width: 100%; /* Spans gracefully to the edges of your container */
 }
 
 /* ---------- Notes section ---------- */
@@ -260,8 +257,11 @@ hr {
 .small { font-size: 0.85rem; }
 
 /* ---------- Mobile ---------- */
+@media (max-width: 740px) {
+  .content-wrapper, .container { padding: 2rem 1.5rem 4rem; }
+}
+
 @media (max-width: 520px) {
-  body { padding: 2rem 1rem 4rem; }
   nav.primary { gap: 0.2rem 1.4rem; }
   .file-entry { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
 }
