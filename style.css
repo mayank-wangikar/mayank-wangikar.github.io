@@ -51,6 +51,26 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 /* ---------- Name / Site Title ---------- */
+.container {
+  /* Sets the width between your red lines */
+  max-width: 800px; /* Adjust this value to match your desired width */
+  width: 100%;
+  
+  /* Centers the content box horizontally */
+  margin: 0 auto; 
+  
+  /* Forces the white background from top to bottom */
+  background-color: #ffffff; 
+  
+  /* Optional: Adds padding so your text doesn't touch the edge of the white area */
+  padding: 40px; 
+  
+  /* Ensures the white block spans the full height of the viewport if content is short */
+  min-height: 100vh; 
+  
+  /* Keeps the border lines neat */
+  box-sizing: border-box; 
+}
 .site-name {
   font-size: 1.45rem;
   font-weight: normal;
